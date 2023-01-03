@@ -41,6 +41,7 @@ export const styles = StyleSheet.create({
     },
     menuBoton:{
         marginVertical: 10,
+        flexDirection: 'row',
     },
     menuTexto:{
         fontSize: 20,

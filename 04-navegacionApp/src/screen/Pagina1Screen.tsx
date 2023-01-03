@@ -3,6 +3,7 @@ import { StackScreenProps } from '@react-navigation/stack/lib/typescript/src/typ
 import React from 'react';
 import { Text, View, Button, TouchableOpacity } from 'react-native';
 import { styles } from '../theme/appTheme';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface Props extends StackScreenProps<any, any>{}
 
@@ -29,6 +30,7 @@ export const Pagina1Screen = ({navigation}: Props) => {
               name: 'Pedro',
             })}
           >
+            <Icon name="face" size={40} color={'white'}/>
             <Text style={styles.botonGrandeTexto}>Pedro</Text>
           </TouchableOpacity>
 
@@ -42,6 +44,7 @@ export const Pagina1Screen = ({navigation}: Props) => {
               name: 'Maria',
             })}
           >
+            <Icon name="sick" size={40} color={'white'}/>
             <Text style={styles.botonGrandeTexto}> Maria</Text>
           </TouchableOpacity>
         </View>

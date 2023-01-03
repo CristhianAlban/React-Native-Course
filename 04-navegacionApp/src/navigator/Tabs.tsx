@@ -2,11 +2,14 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { Tab1Screen } from '../screen/Tab1Screen';
-import { Tab2Screen } from '../screen/Tab2Screen';
+//import { Tab2Screen } from '../screen/Tab2Screen';
 //import { Tab3Screen } from '../screen/Tab3Screen';
 import { StackNavigator } from './StackNavigator';
 import { colors } from '../theme/appTheme';
 import { Platform, Text } from 'react-native';
+import { TopTabNavigator } from './TopTabNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 export const Tabs = () => {
   return Platform.OS === 'ios' ? <TabsIOS/> : <TabsAndroid/>;
@@ -17,9 +20,11 @@ const BottomTabAndroid = createMaterialBottomTabNavigator();
 const TabsAndroid = () => {
   return (
     <BottomTabAndroid.Navigator
-    barStyle={{
-      backgroundColor: colors.primary,
-    }}
+      barStyle={{
+        backgroundColor: colors.primary,
+      }}
+      activeColor="white"
+      inactiveColor="white"
     >
       <BottomTabAndroid.Screen
         name="Tab1Screen"
@@ -27,26 +32,32 @@ const TabsAndroid = () => {
         options={{
           title: 'Tab1',
           tabBarIcon:({ color, focused}) => (
-             <Text style={{color}}>T1</Text>
+            <Text>
+              <Icon name="menu-outline" size={25} color={color} />
+            </Text>
           ),
         }}
       />
       <BottomTabAndroid.Screen
-        name="Tab2Screen"
+        name="TopTabNavigator"
         options={{
           title: 'Tab2',
           tabBarIcon:({ color, focused}) => (
-             <Text style={{color}}>T2</Text>
+            <Text>
+              <Icon name="log-in-outline" size={25} color={color} />
+            </Text>
           ),
         }}
-        component={Tab2Screen}
+        component={TopTabNavigator}
       />
       <BottomTabAndroid.Screen
         name="StackNavigator"
         options={{
           title: 'Stack',
           tabBarIcon:({ color, focused}) => (
-             <Text style={{color}}>stack</Text>
+            <Text>
+              <Icon name="mail-outline" size={25} color={color} />
+            </Text>
           ),
         }}
         component={StackNavigator}
@@ -85,14 +96,14 @@ const TabsIOS = () => {
         }}
       />
       <BottomTabIOS.Screen
-        name="Tab2Screen"
+        name="TopTabNavigator"
         options={{
           title: 'Tab2',
           tabBarIcon:({ color, focused, size}) => (
              <Text style={{color}}>T2</Text>
           ),
         }}
-        component={Tab2Screen}
+        component={TopTabNavigator}
       />
       <BottomTabIOS.Screen
         name="StackNavigator"

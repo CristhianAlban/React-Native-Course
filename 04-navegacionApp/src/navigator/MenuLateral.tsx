@@ -3,8 +3,10 @@ import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScroll
 //import { StackNavigator } from './StackNavigator';
 import { SettingsScreen } from '../screen/SettingsScreen';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { styles } from '../theme/appTheme';
+import { colors, styles } from '../theme/appTheme';
 import { Tabs } from './Tabs';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 const Drawer = createDrawerNavigator();
 
@@ -36,6 +38,7 @@ const MenuInterno = ( { navigation }: DrawerContentComponentProps) => {
           style={styles.menuBoton}
           onPress={ () => navigation.navigate('Tabs')}
         >
+          <Icon name="earth-outline" size={30}/>
           <Text style={styles.menuTexto}>Navegacion</Text>
         </TouchableOpacity>
 
@@ -43,6 +46,7 @@ const MenuInterno = ( { navigation }: DrawerContentComponentProps) => {
           style={styles.menuBoton}
           onPress={ () => navigation.navigate('SettingsScreen')}
         >
+          <Icon name="hammer-outline" size={30}/>
           <Text style={styles.menuTexto}>Ajustes</Text>
         </TouchableOpacity>
 
